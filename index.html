@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scheda esercizi sulle derivate</title>
+  <style>
+    :root{
+      --bg:#f5f7fb; --card:#ffffff; --text:#1f2937; --muted:#4b5563;
+      --accent:#2563eb; --accent2:#0f766e; --soft:#e0ecff; --soft2:#ecfdf5;
+      --border:#d1d5db; --warn:#fff7ed;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    header{background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:34px 18px;text-align:center}
+    header h1{margin:0 0 10px;font-size:clamp(1.7rem,5vw,2.7rem)}
+    header p{margin:0 auto;max-width:850px;font-size:1.08rem}
+    main{max-width:1050px;margin:0 auto;padding:20px}
+    .box,.section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 6px 16px rgba(0,0,0,.05)}
+    .suggestion{background:var(--warn);border-left:8px solid #f97316}
+    .suggestion a{font-weight:700;color:#c2410c}
+    h2{margin-top:0;color:#1d4ed8;border-bottom:2px solid var(--soft);padding-bottom:8px}
+    h3{margin-top:24px;color:#0f766e}
+    .rule{background:var(--soft2);border-left:7px solid var(--accent2);padding:14px 16px;border-radius:12px;margin:12px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .exercise{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}
+    .exercise strong{display:block;margin-bottom:8px;color:#111827}
+    .formula{font-family:"Times New Roman",serif;font-size:1.35rem;background:#f8fafc;border-radius:10px;padding:10px;display:inline-block;margin:6px 0}
+    .frac{display:inline-block;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .15em}
+    .frac .top{display:block;border-bottom:2px solid currentColor;padding:0 .25em .08em}
+    .frac .bottom{display:block;padding:.08em .25em 0}
+    details{margin-top:12px;border:1px solid #bfdbfe;border-radius:12px;overflow:hidden;background:#eff6ff}
+    summary{cursor:pointer;background:#2563eb;color:#fff;padding:10px 14px;font-weight:700;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    .solution{padding:14px;background:#eff6ff}
+    .step{margin:8px 0;padding:8px 10px;background:white;border-radius:10px;border:1px solid #dbeafe}
+    .small{font-size:.95rem;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:25px}
+    @media(max-width:600px){main{padding:12px}.box,.section{padding:15px;border-radius:14px}.formula{font-size:1.2rem}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scheda di esercizi: derivate</h1>
+    <p>Dal livello più semplice alle funzioni con la x al denominatore.</p>
+  </header>
+  <main>
+    <section class="box suggestion">
+      <h2>Prima di iniziare</h2>
+      <p><strong>Se non sai come fare questi esercizi, guarda questo video:</strong><br>
+      <a href="https://www.youtube.com/watch?v=ZaJfSfEqYSQ" target="_blank" rel="noopener">Apri il video sulle derivate</a></p>
+    </section>
+
+    <section class="box">
+      <h2>Regole da ricordare</h2>
+      <div class="rule">
+        <strong>1. Derivata di una potenza</strong><br>
+        <span class="formula">f(x)=x<sup>n</sup> &nbsp;→&nbsp; f'(x)=n·x<sup>n−1</sup></span>
+      </div>
+      <div class="rule">
+        <strong>2. Derivata di un coefficiente per una potenza</strong><br>
+        <span class="formula">f(x)=a·x<sup>n</sup> &nbsp;→&nbsp; f'(x)=a·n·x<sup>n−1</sup></span>
+      </div>
+      <div class="rule">
+        <strong>3. Quando la x è al denominatore</strong><br>
+        <span class="formula"><span class="frac"><span class="top">1</span><span class="bottom">x</span></span> = x<sup>−1</sup> &nbsp;→&nbsp; −<span class="frac"><span class="top">1</span><span class="bottom">x<sup>2</sup></span></span></span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A. Derivata di una potenza</h2>
+      <p class="small">Qui manca il coefficiente davanti alla x.</p>
+      <div class="grid">
+        <div class="exercise"><strong>1.</strong><span class="formula">f(x)=x<sup>2</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù l’esponente 2.</div><div class="step">Diminuisco l’esponente di 1: 2−1=1.</div><div class="step"><span class="formula">f'(x)=2x</span></div></div></details></div>
+        <div class="exercise"><strong>2.</strong><span class="formula">f(x)=x<sup>3</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù il 3.</div><div class="step">3−1=2.</div><div class="step"><span class="formula">f'(x)=3x<sup>2</sup></span></div></div></details></div>
+        <div class="exercise"><strong>3.</strong><span class="formula">f(x)=x<sup>4</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù il 4.</div><div class="step">4−1=3.</div><div class="step"><span class="formula">f'(x)=4x<sup>3</sup></span></div></div></details></div>
+        <div class="exercise"><strong>4.</strong><span class="formula">f(x)=x<sup>5</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù il 5.</div><div class="step">5−1=4.</div><div class="step"><span class="formula">f'(x)=5x<sup>4</sup></span></div></div></details></div>
+        <div class="exercise"><strong>5.</strong><span class="formula">f(x)=x<sup>6</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù il 6.</div><div class="step">6−1=5.</div><div class="step"><span class="formula">f'(x)=6x<sup>5</sup></span></div></div></details></div>
+        <div class="exercise"><strong>6.</strong><span class="formula">f(x)=x<sup>8</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Porto giù l’8.</div><div class="step">8−1=7.</div><div class="step"><span class="formula">f'(x)=8x<sup>7</sup></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>B. Derivata di un coefficiente per una potenza</h2>
+      <p class="small">Moltiplica il coefficiente per l’esponente.</p>
+      <div class="grid">
+        <div class="exercise"><strong>7.</strong><span class="formula">f(x)=3x<sup>2</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 3·2=6.</div><div class="step">Diminuisco l’esponente: 2−1=1.</div><div class="step"><span class="formula">f'(x)=6x</span></div></div></details></div>
+        <div class="exercise"><strong>8.</strong><span class="formula">f(x)=4x<sup>3</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 4·3=12.</div><div class="step">3−1=2.</div><div class="step"><span class="formula">f'(x)=12x<sup>2</sup></span></div></div></details></div>
+        <div class="exercise"><strong>9.</strong><span class="formula">f(x)=5x<sup>4</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 5·4=20.</div><div class="step">4−1=3.</div><div class="step"><span class="formula">f'(x)=20x<sup>3</sup></span></div></div></details></div>
+        <div class="exercise"><strong>10.</strong><span class="formula">f(x)=7x<sup>5</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 7·5=35.</div><div class="step">5−1=4.</div><div class="step"><span class="formula">f'(x)=35x<sup>4</sup></span></div></div></details></div>
+        <div class="exercise"><strong>11.</strong><span class="formula">f(x)=2x<sup>6</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 2·6=12.</div><div class="step">6−1=5.</div><div class="step"><span class="formula">f'(x)=12x<sup>5</sup></span></div></div></details></div>
+        <div class="exercise"><strong>12.</strong><span class="formula">f(x)=9x<sup>3</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Moltiplico 9·3=27.</div><div class="step">3−1=2.</div><div class="step"><span class="formula">f'(x)=27x<sup>2</sup></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>C. Derivate con somme e sottrazioni</h2>
+      <p class="small">Deriva ogni pezzo separatamente. La derivata di un numero da solo è 0.</p>
+      <div class="grid">
+        <div class="exercise"><strong>13.</strong><span class="formula">f(x)=3x<sup>2</sup>+5</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 3x²: 3·2x = 6x.</div><div class="step">La derivata di 5 è 0.</div><div class="step"><span class="formula">f'(x)=6x</span></div></div></details></div>
+        <div class="exercise"><strong>14.</strong><span class="formula">f(x)=4x<sup>3</sup>+2x</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 4x³: 4·3x² = 12x².</div><div class="step">Derivo 2x: 2.</div><div class="step"><span class="formula">f'(x)=12x<sup>2</sup>+2</span></div></div></details></div>
+        <div class="exercise"><strong>15.</strong><span class="formula">f(x)=5x<sup>4</sup>−3x<sup>2</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 5x⁴: 20x³.</div><div class="step">Derivo −3x²: −6x.</div><div class="step"><span class="formula">f'(x)=20x<sup>3</sup>−6x</span></div></div></details></div>
+        <div class="exercise"><strong>16.</strong><span class="formula">f(x)=x<sup>5</sup>+6x<sup>2</sup>−4</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo x⁵: 5x⁴.</div><div class="step">Derivo 6x²: 12x.</div><div class="step">La derivata di −4 è 0.</div><div class="step"><span class="formula">f'(x)=5x<sup>4</sup>+12x</span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>D. Derivate con la x al denominatore</h2>
+      <p class="small">Prima riscrivi la frazione come potenza con esponente negativo.</p>
+      <div class="grid">
+        <div class="exercise"><strong>17.</strong><span class="formula">f(x)=<span class="frac"><span class="top">1</span><span class="bottom">x</span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">f(x)=x<sup>−1</sup></span></div><div class="step">Porto giù −1 e diminuisco l’esponente: −1−1=−2.</div><div class="step"><span class="formula">f'(x)=−x<sup>−2</sup>=−<span class="frac"><span class="top">1</span><span class="bottom">x<sup>2</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>18.</strong><span class="formula">f(x)=<span class="frac"><span class="top">2</span><span class="bottom">x</span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">2x<sup>−1</sup></span></div><div class="step">Moltiplico 2·(−1)=−2.</div><div class="step"><span class="formula">f'(x)=−2x<sup>−2</sup>=−<span class="frac"><span class="top">2</span><span class="bottom">x<sup>2</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>19.</strong><span class="formula">f(x)=<span class="frac"><span class="top">5</span><span class="bottom">x</span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">5x<sup>−1</sup></span></div><div class="step">Moltiplico 5·(−1)=−5.</div><div class="step"><span class="formula">f'(x)=−<span class="frac"><span class="top">5</span><span class="bottom">x<sup>2</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>20.</strong><span class="formula">f(x)=<span class="frac"><span class="top">1</span><span class="bottom">x<sup>2</sup></span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">x<sup>−2</sup></span></div><div class="step">Porto giù −2 e diminuisco: −2−1=−3.</div><div class="step"><span class="formula">f'(x)=−2x<sup>−3</sup>=−<span class="frac"><span class="top">2</span><span class="bottom">x<sup>3</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>21.</strong><span class="formula">f(x)=<span class="frac"><span class="top">3</span><span class="bottom">x<sup>2</sup></span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">3x<sup>−2</sup></span></div><div class="step">Moltiplico 3·(−2)=−6.</div><div class="step"><span class="formula">f'(x)=−6x<sup>−3</sup>=−<span class="frac"><span class="top">6</span><span class="bottom">x<sup>3</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>22.</strong><span class="formula">f(x)=<span class="frac"><span class="top">4</span><span class="bottom">x<sup>3</sup></span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">4x<sup>−3</sup></span></div><div class="step">Moltiplico 4·(−3)=−12.</div><div class="step"><span class="formula">f'(x)=−12x<sup>−4</sup>=−<span class="frac"><span class="top">12</span><span class="bottom">x<sup>4</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>23.</strong><span class="formula">f(x)=<span class="frac"><span class="top">7</span><span class="bottom">x<sup>4</sup></span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">7x<sup>−4</sup></span></div><div class="step">Moltiplico 7·(−4)=−28.</div><div class="step"><span class="formula">f'(x)=−28x<sup>−5</sup>=−<span class="frac"><span class="top">28</span><span class="bottom">x<sup>5</sup></span></span></span></div></div></details></div>
+        <div class="exercise"><strong>24.</strong><span class="formula">f(x)=<span class="frac"><span class="top">10</span><span class="bottom">x<sup>5</sup></span></span></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Riscrivo: <span class="formula">10x<sup>−5</sup></span></div><div class="step">Moltiplico 10·(−5)=−50.</div><div class="step"><span class="formula">f'(x)=−50x<sup>−6</sup>=−<span class="frac"><span class="top">50</span><span class="bottom">x<sup>6</sup></span></span></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Schema finale</h2>
+      <p><span class="formula">x<sup>n</sup> → n·x<sup>n−1</sup></span></p>
+      <p><span class="formula">a·x<sup>n</sup> → a·n·x<sup>n−1</sup></span></p>
+      <p><span class="formula"><span class="frac"><span class="top">a</span><span class="bottom">x<sup>n</sup></span></span> = a·x<sup>−n</sup></span></p>
+    </section>
+  </main>
+  <footer>Pagina didattica sulle derivate – esercizi con soluzioni espandibili</footer>
+</body>
+</html>
