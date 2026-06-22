@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percorso sulle derivate</title>
+  <style>
+    :root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#4b5563;--blue:#2563eb;--violet:#7c3aed;--green:#0f766e;--border:#d1d5db;--orange:#f97316}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    header{background:linear-gradient(135deg,#1d4ed8,#60a5fa);color:#fff;text-align:center;padding:42px 18px}
+    header h1{margin:0 0 10px;font-size:clamp(1.8rem,5vw,3rem)} header p{max-width:850px;margin:0 auto;font-size:1.1rem}
+    main{max-width:1050px;margin:0 auto;padding:20px}.intro,.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 6px 16px rgba(0,0,0,.05)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}.card h2{margin-top:0}.card p{color:var(--muted)}
+    .btn{display:inline-block;margin-top:8px;text-decoration:none;color:#fff;background:var(--blue);padding:12px 14px;border-radius:12px;font-weight:700}.btn:hover{filter:brightness(.95)}
+    .p1{border-top:8px solid var(--blue)}.p2{border-top:8px solid var(--violet)}.p3{border-top:8px solid var(--green)}
+    .topnav{background:#111827;color:#fff;padding:10px 14px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 3px 8px rgba(0,0,0,.15)}
+    .topnav a{color:#fff;text-decoration:none;display:inline-block;margin:4px 6px;padding:8px 11px;border-radius:999px;background:#374151;font-weight:700;font-size:.95rem}.topnav a.active{background:var(--orange);color:#111827}.topnav a:hover{background:#2563eb}
+    footer{text-align:center;color:var(--muted);padding:25px}@media(max-width:600px){main{padding:12px}.topnav a{display:block;margin:7px auto;max-width:310px}}
+  </style>
+</head>
+<body>
+<nav class="topnav"><a class="active" href="index.html">Home</a><a href="passo1_derivate_base.html">Passo 1</a><a href="passo2_esponenziale_logaritmo.html">Passo 2</a><a href="passo3_prodotto_quoziente.html">Passo 3</a></nav>
+<header><h1>Percorso sulle derivate</h1><p>Tre pagine di esercizi progressivi con video, regole e soluzioni apribili passo per passo.</p></header>
+<main>
+  <section class="intro"><h2>Come usare il percorso</h2><p>Segui le pagine in ordine. Prima ripassa le derivate più semplici, poi passa a coefficiente, funzione esponenziale e logaritmo naturale. Infine usa la regola del prodotto e la regola del quoziente.</p></section>
+  <section class="grid">
+    <article class="card p1"><h2>Passo 1</h2><p>Derivata di potenze, coefficienti per potenze, somme e frazioni semplici con la x al denominatore.</p><a class="btn" href="passo1_derivate_base.html">Apri il passo 1</a></article>
+    <article class="card p2"><h2>Passo 2</h2><p>Derivata della parte numerica, di e<sup>x</sup> e di ln(x), con esercizi progressivi.</p><a class="btn" href="passo2_esponenziale_logaritmo.html">Apri il passo 2</a></article>
+    <article class="card p3"><h2>Passo 3</h2><p>Derivata del prodotto e della funzione fratta, usando f e g, anche con e<sup>x</sup> e ln(x).</p><a class="btn" href="passo3_prodotto_quoziente.html">Apri il passo 3</a></article>
+  </section>
+</main>
+<footer>Sito pronto per GitHub Pages</footer>
+</body>
+</html>
