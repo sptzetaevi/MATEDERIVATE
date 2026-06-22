@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passo 2 - Derivate: numeri, e^x e ln(x)</title>
+  <style>
+    :root{
+      --bg:#f5f7fb; --card:#ffffff; --text:#1f2937; --muted:#4b5563;
+      --accent:#7c3aed; --accent2:#0f766e; --soft:#ede9fe; --soft2:#ecfdf5;
+      --border:#d1d5db; --warn:#fff7ed; --blue:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    header{background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;padding:34px 18px;text-align:center}
+    header h1{margin:0 0 10px;font-size:clamp(1.7rem,5vw,2.7rem)}
+    header p{margin:0 auto;max-width:850px;font-size:1.08rem}
+    main{max-width:1050px;margin:0 auto;padding:20px}
+    .box,.section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;margin:18px 0;box-shadow:0 6px 16px rgba(0,0,0,.05)}
+    .suggestion{background:var(--warn);border-left:8px solid #f97316}
+    .suggestion a{font-weight:700;color:#c2410c}
+    h2{margin-top:0;color:#6d28d9;border-bottom:2px solid var(--soft);padding-bottom:8px}
+    h3{margin-top:24px;color:#0f766e}
+    .rule{background:var(--soft2);border-left:7px solid var(--accent2);padding:14px 16px;border-radius:12px;margin:12px 0}
+    .warning{background:#eff6ff;border-left:7px solid var(--blue);padding:14px 16px;border-radius:12px;margin:12px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}
+    .exercise{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}
+    .exercise strong{display:block;margin-bottom:8px;color:#111827}
+    .formula{font-family:"Times New Roman",serif;font-size:1.35rem;background:#f8fafc;border-radius:10px;padding:10px;display:inline-block;margin:6px 0}
+    .frac{display:inline-block;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .15em}
+    .frac .top{display:block;border-bottom:2px solid currentColor;padding:0 .25em .08em}
+    .frac .bottom{display:block;padding:.08em .25em 0}
+    details{margin-top:12px;border:1px solid #ddd6fe;border-radius:12px;overflow:hidden;background:#f5f3ff}
+    summary{cursor:pointer;background:#7c3aed;color:#fff;padding:10px 14px;font-weight:700;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    .solution{padding:14px;background:#f5f3ff}
+    .step{margin:8px 0;padding:8px 10px;background:white;border-radius:10px;border:1px solid #ede9fe}
+    .small{font-size:.95rem;color:var(--muted)}
+    .tag{display:inline-block;background:#ede9fe;color:#5b21b6;border-radius:999px;padding:3px 9px;font-size:.85rem;font-weight:700;margin-bottom:8px}
+    footer{text-align:center;color:var(--muted);padding:25px}
+    @media(max-width:600px){main{padding:12px}.box,.section{padding:15px;border-radius:14px}.formula{font-size:1.15rem}.grid{grid-template-columns:1fr}}
+  
+    .topnav{background:#111827;color:#fff;padding:10px 14px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 3px 8px rgba(0,0,0,.15)}
+    .topnav a{color:#fff;text-decoration:none;display:inline-block;margin:4px 6px;padding:8px 11px;border-radius:999px;background:#374151;font-weight:700;font-size:.95rem}
+    .topnav a.active{background:#f97316;color:#111827}
+    .topnav a:hover{background:#2563eb}
+    @media(max-width:600px){.topnav a{display:block;margin:7px auto;max-width:310px}}
+    
+  </style>
+</head>
+<body>
+<nav class="topnav"><a class="" href="index.html">Home</a><a class="" href="passo1_derivate_base.html">Passo 1</a><a class="active" href="passo2_esponenziale_logaritmo.html">Passo 2</a><a class="" href="passo3_prodotto_quoziente.html">Passo 3</a></nav>
+
+  <header>
+    <h1>Passo 2 – Derivate di funzioni speciali</h1>
+    <p>Derivare la parte numerica di una funzione, la funzione esponenziale e<sup>x</sup> e la funzione logaritmica ln(x).</p>
+  </header>
+  <main>
+    <section class="box suggestion">
+      <h2>Prima di iniziare</h2>
+      <p><strong>Se non ricordi come derivare la parte numerica di una funzione, e<sup>x</sup> e ln(x), guarda questo video:</strong><br>
+      <a href="https://www.youtube.com/watch?v=PqpVUmRmOOg" target="_blank" rel="noopener">Apri il video sulle derivate di coefficienti, e^x e ln(x)</a></p>
+    </section>
+
+    <section class="box">
+      <h2>Regole da ricordare</h2>
+      <div class="rule">
+        <strong>1. Il numero davanti resta e moltiplica la derivata</strong><br>
+        <span class="formula">f(x)=a·x<sup>n</sup> &nbsp;→&nbsp; f'(x)=a·n·x<sup>n−1</sup></span>
+      </div>
+      <div class="rule">
+        <strong>2. La derivata di e<sup>x</sup> resta uguale</strong><br>
+        <span class="formula">f(x)=e<sup>x</sup> &nbsp;→&nbsp; f'(x)=e<sup>x</sup></span>
+      </div>
+      <div class="rule">
+        <strong>3. La derivata di ln(x)</strong><br>
+        <span class="formula">f(x)=ln(x) &nbsp;→&nbsp; f'(x)=<span class="frac"><span class="top">1</span><span class="bottom">x</span></span></span>
+      </div>
+      <div class="warning">
+        <strong>Attenzione:</strong> in questa pagina non usiamo ancora il prodotto e il quoziente. Qui alleniamo i mattoni di base che serviranno nella pagina successiva.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>A. Derivare la parte numerica della funzione</h2>
+      <p class="small">Il numero davanti alla funzione resta. Poi si deriva la parte con la x.</p>
+      <div class="grid">
+        <div class="exercise"><span class="tag">Livello 1</span><strong>1.</strong><span class="formula">f(x)=3x<sup>2</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente è 3.</div><div class="step">Derivo x²: porto giù 2 e scrivo x.</div><div class="step">Moltiplico 3·2=6.</div><div class="step"><span class="formula">f'(x)=6x</span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 1</span><strong>2.</strong><span class="formula">f(x)=5x<sup>3</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente è 5.</div><div class="step">Derivo x³: porto giù 3 e scrivo x².</div><div class="step">Moltiplico 5·3=15.</div><div class="step"><span class="formula">f'(x)=15x<sup>2</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 1</span><strong>3.</strong><span class="formula">f(x)=7x<sup>4</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente è 7.</div><div class="step">Derivo x⁴: porto giù 4 e scrivo x³.</div><div class="step">Moltiplico 7·4=28.</div><div class="step"><span class="formula">f'(x)=28x<sup>3</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 1</span><strong>4.</strong><span class="formula">f(x)=2x<sup>5</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente è 2.</div><div class="step">Derivo x⁵: porto giù 5 e scrivo x⁴.</div><div class="step">Moltiplico 2·5=10.</div><div class="step"><span class="formula">f'(x)=10x<sup>4</sup></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>B. Derivare e<sup>x</sup> con un coefficiente</h2>
+      <p class="small">La derivata di e<sup>x</sup> è ancora e<sup>x</sup>. Il numero davanti resta.</p>
+      <div class="grid">
+        <div class="exercise"><span class="tag">Livello 2</span><strong>5.</strong><span class="formula">f(x)=e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">La derivata di eˣ resta eˣ.</div><div class="step"><span class="formula">f'(x)=e<sup>x</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 2</span><strong>6.</strong><span class="formula">f(x)=2e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente 2 resta.</div><div class="step">La derivata di eˣ è eˣ.</div><div class="step"><span class="formula">f'(x)=2e<sup>x</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 2</span><strong>7.</strong><span class="formula">f(x)=5e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente 5 resta.</div><div class="step">La derivata di eˣ è eˣ.</div><div class="step"><span class="formula">f'(x)=5e<sup>x</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 2</span><strong>8.</strong><span class="formula">f(x)=−3e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente −3 resta.</div><div class="step">La derivata di eˣ è eˣ.</div><div class="step"><span class="formula">f'(x)=−3e<sup>x</sup></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>C. Derivare ln(x) con un coefficiente</h2>
+      <p class="small">La derivata di ln(x) è 1/x. Il coefficiente davanti resta.</p>
+      <div class="grid">
+        <div class="exercise"><span class="tag">Livello 3</span><strong>9.</strong><span class="formula">f(x)=ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Uso la regola: la derivata di ln(x) è 1/x.</div><div class="step"><span class="formula">f'(x)=<span class="frac"><span class="top">1</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 3</span><strong>10.</strong><span class="formula">f(x)=2ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente 2 resta.</div><div class="step">La derivata di ln(x) è 1/x.</div><div class="step"><span class="formula">f'(x)=<span class="frac"><span class="top">2</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 3</span><strong>11.</strong><span class="formula">f(x)=5ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente 5 resta.</div><div class="step">La derivata di ln(x) è 1/x.</div><div class="step"><span class="formula">f'(x)=<span class="frac"><span class="top">5</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 3</span><strong>12.</strong><span class="formula">f(x)=−4ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Il coefficiente −4 resta.</div><div class="step">La derivata di ln(x) è 1/x.</div><div class="step"><span class="formula">f'(x)=−<span class="frac"><span class="top">4</span><span class="bottom">x</span></span></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>D. Funzioni miste: potenze, e<sup>x</sup> e ln(x)</h2>
+      <p class="small">Deriva ogni termine separatamente. Ricorda: la derivata di un numero da solo è 0.</p>
+      <div class="grid">
+        <div class="exercise"><span class="tag">Livello 4</span><strong>13.</strong><span class="formula">f(x)=3x<sup>2</sup>+e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 3x²: 6x.</div><div class="step">Derivo eˣ: eˣ.</div><div class="step"><span class="formula">f'(x)=6x+e<sup>x</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 4</span><strong>14.</strong><span class="formula">f(x)=4x<sup>3</sup>+2e<sup>x</sup></span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 4x³: 12x².</div><div class="step">Derivo 2eˣ: 2eˣ.</div><div class="step"><span class="formula">f'(x)=12x<sup>2</sup>+2e<sup>x</sup></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 4</span><strong>15.</strong><span class="formula">f(x)=5x<sup>2</sup>+ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 5x²: 10x.</div><div class="step">Derivo ln(x): 1/x.</div><div class="step"><span class="formula">f'(x)=10x+<span class="frac"><span class="top">1</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 4</span><strong>16.</strong><span class="formula">f(x)=2x<sup>4</sup>+3ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 2x⁴: 8x³.</div><div class="step">Derivo 3ln(x): 3/x.</div><div class="step"><span class="formula">f'(x)=8x<sup>3</sup>+<span class="frac"><span class="top">3</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 4</span><strong>17.</strong><span class="formula">f(x)=e<sup>x</sup>+ln(x)</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo eˣ: eˣ.</div><div class="step">Derivo ln(x): 1/x.</div><div class="step"><span class="formula">f'(x)=e<sup>x</sup>+<span class="frac"><span class="top">1</span><span class="bottom">x</span></span></span></div></div></details></div>
+        <div class="exercise"><span class="tag">Livello 4</span><strong>18.</strong><span class="formula">f(x)=3e<sup>x</sup>−2ln(x)+7</span><details><summary>Mostra soluzione</summary><div class="solution"><div class="step">Derivo 3eˣ: 3eˣ.</div><div class="step">Derivo −2ln(x): −2/x.</div><div class="step">La derivata di 7 è 0.</div><div class="step"><span class="formula">f'(x)=3e<sup>x</sup>−<span class="frac"><span class="top">2</span><span class="bottom">x</span></span></span></div></div></details></div>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Schema finale</h2>
+      <p><span class="formula">a·x<sup>n</sup> → a·n·x<sup>n−1</sup></span></p>
+      <p><span class="formula">a·e<sup>x</sup> → a·e<sup>x</sup></span></p>
+      <p><span class="formula">a·ln(x) → <span class="frac"><span class="top">a</span><span class="bottom">x</span></span></span></p>
+    </section>
+  </main>
+  <footer>Passo 2 – esercizi con soluzioni espandibili</footer>
+</body>
+</html>
